@@ -30,3 +30,25 @@ void mod(stack_t **stack, unsigned int line_number)
 	(*stack) = (*stack)->next;
 	free(to_delete);
 }
+/**
+ * pchar - prints character at the top the stack
+ * @stack: head of the stack list
+ * @line_number: line number
+ */
+void pchar(stack_t **stack, unsigned int line_number)
+{
+	if (*stack == NULL)
+	{
+		fprintf(stderr, "L%u: can't pchar, stack empty\n", line_number);
+		termi_global();
+		exit(EXIT_FAILURE);
+	}
+	if ((*stack)->n < 32 || (*stack)->n > 127)
+	{
+		fprintf(stderr, "L%u: can't pchar, value out of range\n", line_number);
+		termi_global();
+		exit(EXIT_FAILURE);
+	}
+	printf("%c\n", (*stack)->n);
+}
+
