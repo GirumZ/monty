@@ -56,7 +56,7 @@ void sub(stack_t **stack, unsigned int line_number)
 	free(to_delete);
 }
 /**
- * div - divides the second top element of the stack by the top
+ * _div - divides the second top element of the stack by the top
  * element of the stack.
  * @stack: head of the stack
  * @line_number: line number
