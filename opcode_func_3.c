@@ -51,4 +51,22 @@ void pchar(stack_t **stack, unsigned int line_number)
 	}
 	printf("%c\n", (*stack)->n);
 }
+/**
+ * pall - prints all elements of the stack
+ * @stack: head of the stack list
+ * @line_number: line number
+ */
+void pstr(stack_t **stack, unsigned int line_number)
+{
+	stack_t *current;
+	(void)line_number;
+
+	current = *stack;
+	while (current && current->n >= 32 && current->n <= 127)
+	{
+		printf("%c", current->n);
+		current = current->next;
+	}
+	printf("\n");
+}
 
