@@ -16,6 +16,9 @@ void (*find_opcode(char *opc))(stack_t **satck, unsigned int line_number)
 		{"swap", swap},
 		{"add", add},
 		{"nop", nop},
+		{"sub", sub},
+		{"div", _div},
+		{"mul", mul},
 		{NULL, NULL}
 	};
 
