@@ -1,5 +1,6 @@
 #include "monty.h"
 
+void init_global(void);
 global_t glob;
 
 /**
@@ -28,7 +29,6 @@ int main(int argc, char **argv)
 	init_global();
 	glob.fp = fp;
 	glob.buff = read_line(fp);
-
 	while (glob.buff)
 	{
 		opcode_array[0] = strtok(glob.buff, " \t\n");
@@ -50,7 +50,6 @@ int main(int argc, char **argv)
 		glob.buff = read_line(fp);
 		glob.cline++;
 	}
-
 	termi_global();
 	return (0);
 }
