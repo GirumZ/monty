@@ -20,6 +20,7 @@ void (*find_opcode(char *opc))(stack_t **satck, unsigned int line_number)
 		{"div", _div},
 		{"mul", mul},
 		{"mod", mod},
+		{"pchar", pchar},
 		{NULL, NULL}
 	};
 
