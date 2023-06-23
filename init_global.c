@@ -5,6 +5,7 @@
 
 void init_global(void)
 {
+	glob.s_q_switch = 1;
 	glob.cline = 1;
 	glob.arg = NULL;
 	glob.fp = NULL;
