@@ -52,7 +52,7 @@ void pchar(stack_t **stack, unsigned int line_number)
 	printf("%c\n", (*stack)->n);
 }
 /**
- * pall - prints all elements of the stack
+ * pstr - prints the string starting at the top of the stack
  * @stack: head of the stack list
  * @line_number: line number
  */
@@ -69,4 +69,45 @@ void pstr(stack_t **stack, unsigned int line_number)
 	}
 	printf("\n");
 }
+/**
+ * rotl - rotates the stack to the top
+ * @stack: the head of the stack
+ * @line_number: line number
+ */
+void rotl(stack_t **stack, unsigned int line_number)
+{
+	stack_t *current;
+	(void)line_number;
 
+	current = *stack;
+	if (*stack ==  NULL || (*stack)->next == NULL)
+		return;
+	while (current->next != NULL)
+		current = current->next;
+	current->next = *stack;
+	(*stack)->prev = current;
+	(*stack) = (*stack)->next;
+	(*stack)->prev->next = NULL;
+	(*stack)->prev = NULL;
+}
+/**
+ * rotr - rotates the stack to the bottom
+ * @stack: the head of the stack
+ * @line_number: line number
+ */
+void rotr(stack_t **stack, unsigned int line_number)
+{
+	stack_t *current;
+	(void)line_number;
+
+	current = *stack;
+	if (*stack ==  NULL || (*stack)->next == NULL)
+		return;
+	while (current->next != NULL)
+		current = current->next;
+	current->prev->next = NULL;
+	(*stack)->prev = current;
+	current->next = *stack;
+	current->prev = NULL;
+	(*stack) = current;
+}
