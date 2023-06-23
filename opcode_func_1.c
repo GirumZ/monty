@@ -25,7 +25,10 @@ void push(stack_t **stack, unsigned int line_number)
 		}
 	}
 	data = atoi(glob.arg);
-	add_dnodeint(stack, data);
+	if (glob.s_q_switch == 1)
+		add_dnodeint(stack, data);
+	if (glob.s_q_switch == 0)
+		add_dnodeint_end(stack, data);
 }
 /**
  * pall - prints all elements of the stack
